@@ -1,0 +1,21 @@
+{
+  "name": "QAtest-project",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "selenium-server": "java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium.jar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaeltchq/QA_tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "codeceptjs": "^3.0.1",
+    "protractor": "^7.0.0"
+  }
+}
