@@ -1,7 +1,7 @@
 Feature('Signup');
 
 Before(async ({ I, ActionPage }) => {
-    ActionPage.goToPage()
+    ActionPage.goToPage('/')
 });
 
 Scenario('Going to Login section', async ({ I, ActionPage }) => {

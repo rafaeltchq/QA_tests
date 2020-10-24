@@ -1,10 +1,10 @@
 const I = actor();
 
-const goToAnchorTag = innerText => locate('a').withText(innerText);
+const goToAnchorTag = innerText => locate(' > ul > li.menu__item > a').withText(innerText);
 const goToFieldName = fieldName => locate('label').withText(fieldName);
 module.exports = {
-    goToPage() {
-        I.amOnPage('https://commerce.acromedia.com/')
+    goToPage(site) {
+        I.amOnPage(site)
         I.refreshPage()
         I.executeScript(() => sessionStorage.clear())
         I.executeScript(() => console.error('Error!'))
@@ -15,8 +15,9 @@ module.exports = {
         I.click(goToAnchorTag(place));
     },
     goToLogin() {
-        I.waitForClickable('.menu__item--log-in',3);
+        I.see('Log In');
         I.click({ xpath: `(//nav[@id='block-useraccountmenu']//a[.='Log in'])`});
+        I.waitForVisible('.page-title',2)
     },
     goFillField(field, text) {
         I.scrollTo(goToFieldName(field))

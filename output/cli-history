@@ -56,3 +56,9 @@ I.click({ xpath: `(//*[@id="block-useraccountmenu"]/ul/li[2]/a)`})
 <<< Recorded commands on Fri Oct 23 2020 01:17:47 GMT+0200 (Central European Summer Time)
 I.click//*[@id="block-useraccountmenu"]/ul/li[2]/a
 I.click({ xpath: `(//*[@id="block-useraccountmenu"]/ul/li[2]/a)`})
+
+<<< Recorded commands on Sat Oct 24 2020 18:10:38 GMT+0200 (Central European Summer Time)
+I.see('Log In')
+I.click('#block-useraccountmenu > ul > li.menu__item.menu__item--log-in > a')
+I.click('#block-useraccountmenu > ul > li.menu__item.menu__item--log-in > a')
+I.click('#block-useraccountmenu > ul > li.menu__item.menu__item--log-in > a')

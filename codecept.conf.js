@@ -5,7 +5,7 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: 'commerce_tests/**/*_test.js',
+  tests: 'commerce_tests/*_test.js',
   output: './output',
   helpers: {
     Protractor: {
@@ -21,6 +21,12 @@ exports.config = {
   include: {
     ActionPage: './commerce_tests/pages/action.page.js'
   },
+  // gherkin: {
+  //   features: './commerce_tests/features/*.feature',
+  //   steps: [
+  //     './commerce_tests/steps/*.steps.js'
+  //   ]
+  // ,
   bootstrap: null,
   mocha: {},
   name: 'test-project',
