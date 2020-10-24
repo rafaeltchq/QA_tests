@@ -1,25 +1,30 @@
 Feature('Signup');
 
-Scenario('Creating a new user', async ({ I, ActionPage }) => {
-    I.amOnPage('/');
-    I.see('Log In');
-    I.click({ xpath: `(//nav[@id='block-useraccountmenu']//a[.='Log in'])`});
-    // ActionPage.goto('Log In')
-    ActionPage.goto('Create new account')
+Before(async ({ I, ActionPage }) => {
+    ActionPage.goToPage()
+});
 
-    I.fillField('Email address', 'rafaelchq@live.de');
-    I.seeInField('#edit-mail', 'rafaelchq@live.de');
+Scenario('Going to Login section', async ({ I, ActionPage }) => {
+    I.say('Given I have a home page');
+    I.say('When I click to Log In link');
+    ActionPage.goToLogin();
+    I.say('And I have a Log In page');
+// });
+// Scenario('Going to Signup section', async ({ I, ActionPage }) => {
+    // I.say('Given I have a Log In page');
+    I.say(`And I click a 'create a new user' tab`);
+    ActionPage.goToPlace('Create new account');
+    I.say(`And I have a 'create a new user' section`);
+// });
+// Scenario('Filling Signup form', async ({ I, ActionPage }) => {
+    I.say('And I have empty form fields');
+    I.say('And I fill form fields');
+    ActionPage.goFillField('Email address', 'rafaelchq@live.de');
+    ActionPage.goFillField('Username', 'rafaelchq');
+    ActionPage.scrollToAndClick('#edit-timezone--2');
+    ActionPage.goToDropdown('Time zone', 'Madrid');
+    I.say(`And I click 'create new user'`);
+    I.say('Then I receive an email for verifing user');
 
-    I.fillField('Username', 'rafaelchq');
-    I.seeInField('#edit-name', 'rafaelchq');
-
-    I.scrollTo('#edit-timezone--2');
-    I.click('#edit-timezone--2');
-    I.see('Madrid');
-    I.selectOption('#edit-timezone--2','Madrid');
-    // I.wait(2);
-    // I.scrollPageToBottom();
-    // I.wait(2);
-    // I.scrollPageToTop();
-    // I.wait(2);
+    // I.wait(5);
 });

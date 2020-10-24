@@ -14,6 +14,7 @@ exports.config = {
       browser: 'chrome',
       rootElement: 'body',
       smartWait: 5000,
+      windowSize: 'maximize',
       angular: false
     }
   },
