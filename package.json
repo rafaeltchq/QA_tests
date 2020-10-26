@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "codeceptjs": "codeceptjs run --steps",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cucumber-js",
     "selenium-server": "java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium.jar"
   },
   "repository": {
@@ -17,9 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^7.0.0-rc.0",
+    "chromedriver": "^86.0.0",
     "codeceptjs": "^3.0.1",
-    "codeceptjs-dbhelper": "^1.0.1",
-    "database-js-json": "^1.2.1",
     "protractor": "^7.0.0"
   }
 }
