@@ -1,37 +1,23 @@
 Feature('gotoLogin');
-
+// const datos = require('database')
 // Before(async ({ I, ActionPage }) => {
 //     ActionPage.goToPage('/')
 // });
 
-Scenario('Going to Login page from Home', async ({ I, ActionPage }) => {
-    I.say('Given I have a home page');
-    ActionPage.goToPage('/')
-    I.say('When I click Log In word');
-    ActionPage.goToLogin();
-    I.say('Then I have Log In page');
-});
+let pages = new DataTable(['site', 'address']);
+pages.add(['Home','/' ]);
+pages.add(['Cart','/cart']);
+pages.add(['Live-chat','/live-chat']);
+pages.add(['products','/products']);
 
-Scenario('Going to Login page from Cart', async ({ I, ActionPage }) => {
-    I.say('Given I have a Cart page');
-    ActionPage.goToPage('/cart')
-    I.say('When I click Log In word');
-    ActionPage.goToLogin();
-    I.say('Then I have Log In page');
-});
 
-Scenario('Going to Login page from Live chat', async ({ I, ActionPage }) => {
-    I.say('Given I have a Cart page');
-    ActionPage.goToPage('/live-chat')
-    I.say('When I click Log In word');
-    ActionPage.goToLogin();
-    I.say('Then I have Log In page');
-});
 
-Scenario('Going to Login page from Products', async ({ I, ActionPage }) => {
-    I.say('Given I have a Cart page');
-    ActionPage.goToPage('/products')
+Data(pages).Scenario('Going to Login page', async ({ I, ActionPage, current }) => {
+// Scenario('Going to Login page', async ({ I, ActionPage }) => {
+    I.say("Given I have a Home page");
+    ActionPage.goToPage(current.address)
     I.say('When I click Log In word');
     ActionPage.goToLogin();
     I.say('Then I have Log In page');
+    I.see('Log in')
 });

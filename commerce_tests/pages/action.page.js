@@ -4,7 +4,7 @@ const goToAnchorTag = innerText => locate(' > ul > li.menu__item > a').withText(
 const goToFieldName = fieldName => locate('label').withText(fieldName);
 module.exports = {
     goToPage(site) {
-        I.amOnPage(site)
+        I.amOnPage(`https://commerce.acromedia.com${site}`)
         I.refreshPage()
         I.executeScript(() => sessionStorage.clear())
         I.executeScript(() => console.error('Error!'))
@@ -30,7 +30,13 @@ module.exports = {
     },
     goToDropdown(dropdown, item) {
         I.click(dropdown);
-        I.selectOption(goToFieldName(dropdown),item);
-        I.waitForVisible(item);
+        I.selectOption(dropdown,item);
+    },
+    goToCheck(item) {
+        I.checkOption(item);
+    },
+    goToUncheck(item) {
+        I.seeCheckboxIsChecked(item);
+        I.uncheckOption(item);
     }
 }

@@ -1,15 +1,8 @@
-const { setHeadlessWhen } = require('@codeceptjs/configure');
-
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
 exports.config = {
-  tests: 'commerce_tests/*_test.js',
   output: './output',
   helpers: {
     Protractor: {
-      url: 'https://commerce.acromedia.com/',
+      url: 'http://localhost/',
       driver: 'hosted',
       browser: 'chrome',
       rootElement: 'body',
@@ -19,27 +12,29 @@ exports.config = {
     }
   },
   include: {
-    ActionPage: './commerce_tests/pages/action.page.js'
+    ActionPage: './commerce_tests/pages/action.page.js',
+    database: './commerce_tests/dataset/database.js'
   },
-  // gherkin: {
-  //   features: './commerce_tests/features/*.feature',
-  //   steps: [
-  //     './commerce_tests/steps/*.steps.js'
-  //   ]
-  // ,
-  bootstrap: null,
   mocha: {},
-  name: 'test-project',
+  bootstrap: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './commerce_tests/features/*.feature',
+    steps: ['./commerce_tests/step_definitions/gotoLogin_steps.js']
+  },
   plugins: {
+    screenshotOnFail: {
+      enabled: true
+    },
     pauseOnFail: {},
     retryFailedStep: {
       enabled: true
     },
     tryTo: {
       enabled: true
-    },
-    screenshotOnFail: {
-      enabled: true
     }
-  }
+  },
+  tests: 'commerce_tests/*_test.js',
+  name: 'test-project'
 }

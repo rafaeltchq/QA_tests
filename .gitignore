@@ -110,4 +110,4 @@ chromedriver.exe
 *.txt
 
 # Cucumber folder setting
-.vscode
+.vscode/

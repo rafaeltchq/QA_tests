@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "codeceptjs": "codeceptjs run --steps",
-    "test": "cucumber-js",
     "selenium-server": "java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium.jar"
   },
   "repository": {
@@ -16,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "^7.0.0-rc.0",
     "chromedriver": "^86.0.0",
     "codeceptjs": "^3.0.1",
     "protractor": "^7.0.0"
