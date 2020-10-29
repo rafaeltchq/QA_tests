@@ -105,9 +105,10 @@ dist
 #  other files
 selenium.jar
 chromedriver.exe
-
-# TXT files
 *.txt
+*.csv
 
 # Cucumber folder setting
-.vscode/
+.vscode
+
+

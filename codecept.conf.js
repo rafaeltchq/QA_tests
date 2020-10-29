@@ -12,17 +12,16 @@ exports.config = {
     }
   },
   include: {
-    ActionPage: './commerce_tests/pages/action.page.js',
-    database: './commerce_tests/dataset/database.js'
+    ActionPage: './commerce_tests/pages/action.page.js'
   },
   mocha: {},
   bootstrap: null,
   teardown: null,
   hooks: [],
-  gherkin: {
-    features: './commerce_tests/features/*.feature',
-    steps: ['./commerce_tests/step_definitions/gotoLogin_steps.js']
-  },
+  // gherkin: {
+  //   features: './commerce_tests/features/*.feature',
+  //   steps: ['./commerce_tests/step_definitions/gotoLogin_steps.js']
+  // },
   plugins: {
     screenshotOnFail: {
       enabled: true

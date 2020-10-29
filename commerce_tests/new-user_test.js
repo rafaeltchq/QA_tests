@@ -1,14 +1,14 @@
 Feature('Signup');
-
+const users = require('./dataset/users-data');
 Before(async ({ I, ActionPage }) => {
     ActionPage.goToPage('/user/register')
 });
 
-Scenario('Creating a new user', async ({ I, ActionPage }) => {
+Data(users).Scenario('Creating a new user', async ({ I, ActionPage, current }) => {
     I.say('And I have empty form fields');
     I.say('And I fill form fields');
-    ActionPage.goFillField('Email address', 'rafaelchq@live.de');
-    ActionPage.goFillField('Username', 'rafaelchq');
+    ActionPage.goFillField('Email address', current.email);
+    ActionPage.goFillField('Username', current.username);
     I.say(`And I check and uncheck 'Contact form'`);
     ActionPage.goToCheck('#edit-contact--2');
     ActionPage.goToUncheck('#edit-contact--2');
